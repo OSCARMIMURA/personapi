@@ -8,8 +8,10 @@ import one.digitalinnovation.personapi.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.w3c.dom.stylesheets.LinkStyle;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/people")
@@ -27,6 +29,11 @@ public class PersonController {
     public MessageResponseDTO createPerson(@RequestBody @Valid PersonDTO personDTO){
         return personService.createPerson(personDTO);
 
+    }
+@GetMapping
+    public List<PersonDTO> listAll(){
+        //List<Person> all = personRepository.findAll();
+        return personService.listAll();
     }
 
 }
